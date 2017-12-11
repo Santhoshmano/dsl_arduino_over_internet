@@ -1,0 +1,15 @@
+{
+  "name": "dsl_arduino_over_internet",
+  "version": "1.0.0",
+  "description": "controlling arduino over the internet.its made on behalf of college project",
+  "main": "server.js",
+  "repository": "https://github.com/laxmanvijay/dsl_arduino_over_internet",
+  "author": "vijay",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "express": "^4.16.2",
+    "johnny-five": "^0.11.7",
+    "socket.io": "^2.0.4"
+  }
+}
