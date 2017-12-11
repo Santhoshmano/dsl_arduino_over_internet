@@ -6,6 +6,8 @@ var five = require('johnny-five');
 var board = new five.Board();
 var led;
 
+app.use(express.static('static'))
+
 board.on('ready', function() {
   led = new five.Led(8); // pin 13
     led.off()

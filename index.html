@@ -13,20 +13,37 @@
 </head>
 <body>
 
-        <button id="on_button" class="w3-button w3-teal">Turn on the light</button>
-        <button id="off_button" class="w3-button w3-red">Turn off the light</button>
-    
+        <div id="base" class="w3-card-4 w3-dark-grey w3-display-middle">
+                
+                <div class="w3-container w3-center">
+                  <h3>Light Status</h3>
+                  <img src="off.jpg" alt="Avatar" style="width:300px;height:300px">
+                  <h5>OFF</h5>
+                
+                  <button id="on_button" class="w3-button w3-teal">Turn on the light</button>
+                  <button id="off_button" class="w3-button w3-red">Turn off the light</button>
+              
+                </div>
+                
+                </div>
+
+     
         <script>
         var socket=io.connect();
 
 $('#on_button').click(()=>{
     socket.emit('on');
-    
+    $('h5').html("ON");
+    $('img').attr("src","on.png");
+    $('#base').addClass("w3-pale-white").removeClass("w3-dark-gray");
 })
 
 
 $('#off_button').click(()=>{
     socket.emit('off');
+    $('h5').html("OFF");
+    $('img').attr("src","off.jpg");
+    $('#base').addClass("w3-dark-gray").removeClass("w3-pale-white");
 })
 
 
