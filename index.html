@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    
     
     <title>Document</title>
 </head>
@@ -14,5 +16,22 @@
         <button id="on_button" class="w3-button w3-teal">Turn on the light</button>
         <button id="off_button" class="w3-button w3-red">Turn off the light</button>
     
+        <script>
+        var socket=io.connect();
+
+$('#on_button').click(()=>{
+    socket.emit('on');
+    
+})
+
+
+$('#off_button').click(()=>{
+    socket.emit('off');
+})
+
+
+        
+        
+        </script>
 </body>
 </html>

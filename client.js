@@ -1,11 +1,13 @@
-var io=io.connect();
+var socket=io.connect();
 
-$("#on_button").click(()=>{
-    io.emit('on');
+$('#on_button').click(()=>{
+    alert("on");
+    socket.emit('on');
+    
 })
 
 
-$("#off_button").click(()=>{
-    io.emit('off');
+$('#off_button').click(()=>{
+    socket.emit('off');
 })
 
