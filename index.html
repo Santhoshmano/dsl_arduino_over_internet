@@ -9,43 +9,74 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
     
     
-    <title>Document</title>
+    <title>webify</title>
 </head>
 <body>
-
-        <div id="base" class="w3-card-4 w3-dark-grey w3-display-middle">
+<div class="w3-bar w3-black">
+  <a href="#" class="w3-bar-item w3-button">Webify</a>
+</div>
+	<div class="w3-display-middle">
+        <div id="base1" class="w3-cell w3-margin-right w3-card-4 w3-dark-grey">
                 
                 <div class="w3-container w3-center">
-                  <h3>Light Status</h3>
-                  <img src="off.jpg" alt="Avatar" style="width:300px;height:300px">
-                  <h5>OFF</h5>
+                  <h3>Status</h3>
+                  <img id="img1" src="off.jpg" alt="Avatar" style="width:300px;height:300px">
+                  <h5 id="h51">OFF</h5>
                 
-                  <button id="on_button" class="w3-button w3-teal">Turn on the light</button>
-                  <button id="off_button" class="w3-button w3-red">Turn off the light</button>
+                  <button id="on_button1" class="w3-button w3-teal">Turn on</button>
+                  <button id="off_button1" class="w3-button w3-red">Turn off</button>
               
                 </div>
                 
-                </div>
+        </div>
+        <div id="base2" class="w3-cell w3-margin w3-card-4 w3-dark-grey">
+                
+            <div class="w3-container w3-center">
+              <h3>Status</h3>
+              <img id="img2" src="fan_off.jpg" alt="Avatar" style="width:300px;height:300px">
+              <h5 id="h52" >OFF</h5>
+            
+              <button id="on_button2" class="w3-button w3-teal">Turn on</button>
+              <button id="off_button2" class="w3-button w3-red">Turn off</button>
+          
+            </div>
+	
+	</div>            
+    </div>
 
      
         <script>
         var socket=io.connect();
 
-$('#on_button').click(()=>{
-    socket.emit('on');
-    $('h5').html("ON");
-    $('img').attr("src","on.png");
+$('#on_button1').click(()=>{
+    socket.emit('on1');
+    $('#h51').html("ON");
+    $('#img1').attr("src","on.png");
     $('#base').addClass("w3-pale-white").removeClass("w3-dark-gray");
 })
 
 
-$('#off_button').click(()=>{
-    socket.emit('off');
-    $('h5').html("OFF");
-    $('img').attr("src","off.jpg");
+$('#off_button1').click(()=>{
+    socket.emit('off1');
+    $('#h51').html("OFF");
+    $('#img1').attr("src","off.jpg");
     $('#base').addClass("w3-dark-gray").removeClass("w3-pale-white");
 })
 
+$('#on_button2').click(()=>{
+    socket.emit('on2');
+    $('#h52').html("ON");
+    $('#img2').attr("src","fan_on.gif");
+    $('#base').addClass("w3-pale-white").removeClass("w3-dark-gray");
+})
+
+
+$('#off_button2').click(()=>{
+    socket.emit('off2');
+    $('#h52').html("OFF");
+    $('#img2').attr("src","fan_off.jpg");
+    $('#base').addClass("w3-dark-gray").removeClass("w3-pale-white");
+})
 
         
         
